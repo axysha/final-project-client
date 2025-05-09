@@ -20,6 +20,21 @@ export const fetchAllCampusesThunk = () => async (dispatch) => {  // The THUNK
   }
 };
 
+//Add Campuse
+// THUNK CREATOR:
+export const addCampusThunk = (campus) => async (dispatch) => {
+  try{
+    // API "post" call to add the "campus" object's data to the database
+    let res = await axios.post(`/api/campuses`, campus); 
+    // Call Action Creator to return Action object (type + payload with new campus data)
+    // Then dispatch the Action object to Reducer to update state 
+    dispatch(ac.addCampus(res.data));
+    return res.data;
+  } catch(err){
+    console.error("Error adding campus: ",err);
+  }
+}
+
 // Single Campus
 // THUNK CREATOR:
 export const fetchCampusThunk = (id) => async (dispatch) => {  // The THUNK
