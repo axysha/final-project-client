@@ -20,7 +20,7 @@ export const fetchAllCampusesThunk = () => async (dispatch) => {  // The THUNK
   }
 };
 
-//Add Campuse
+//Add Campus
 // THUNK CREATOR:
 export const addCampusThunk = (campus) => async (dispatch) => {
   try{
@@ -44,6 +44,19 @@ export const fetchCampusThunk = (id) => async (dispatch) => {  // The THUNK
     dispatch(ac.fetchCampus(res.data));
   } catch(err) {
     console.error(err);
+  }
+};
+
+//Delete Campus
+//ThUNK CREATOR
+export const deleteCampusThunk = (id) => async (dispatch) => {
+  try{
+    // API "delete" call to delete campus
+    await axios.delete(`/api/campuses/${id}`);
+    dispatch(fetchAllCampuses());  // Refresh the campus list after deletion
+  }
+  catch(err){
+    console.error("Error deleting campus:", err);
   }
 };
 
