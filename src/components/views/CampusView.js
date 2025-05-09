@@ -20,22 +20,13 @@ const CampusView = (props) => {
   // Render a single Campus view with list of its students
   return (
     <div>
+      
       <h1>{campus.name}</h1>
       <img src={campus.imageUrl} height="200" width="200" alt="college campus"/>
       <p>{campus.address}</p>
       <p>{campus.description}</p>
 
-      {/* {campus.students.map( student => {
-        let name = student.firstname + " " + student.lastname;
-        return (
-          <div key={student.id}>
-            <Link to={`/student/${student.id}`}>
-              <h2>{name}</h2>
-            </Link>             
-          </div>
-        );
-      })} */}
-
+      
       {campus.students.length ? (
         campus.students.map(student => {
           let name = student.firstname + " " + student.lastname;
@@ -56,6 +47,7 @@ const CampusView = (props) => {
 
     </div>
   );
+  
 };
 
 export default CampusView;
