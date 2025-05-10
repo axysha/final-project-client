@@ -32,7 +32,17 @@ const AllCampusesView = (props) => {
       ))}
       <br/>
       <Link to={`/newcampus`}>
-        <button>Add New Campus</button>
+        <button
+        style={{ 
+          margin: "5px", 
+          padding: "8px 12px", 
+          backgroundColor: "#11153e", 
+          color: "white", 
+          border: "none", 
+          borderRadius: "5px", 
+          cursor: "pointer" 
+        }}
+        >Add New Campus</button>
       </Link>
       <br/><br/>
     </div>
