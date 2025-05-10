@@ -60,6 +60,17 @@ export const deleteCampusThunk = (id) => async (dispatch) => {
   }
 };
 
+//Edit Campus
+//THUNK CEATOR
+export const editCampusThunk = (id,updatedCampus) => async dispatch => {
+  try{
+    const res = await axios.put(`/api/campuses/${id}`,updatedCampus);
+    dispatch(ac.editCampus(res.data)); 
+  } catch(err){
+    console.error("Error editing campus: ",err);
+  }
+};
+
 // All Students
 // THUNK CREATOR:
 export const fetchAllStudentsThunk = () => async (dispatch) => {  // The THUNK
