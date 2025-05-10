@@ -13,7 +13,7 @@ const CampusView = (props) => {
   // Delete handler function
   const handleDelete = async () => {
     await deleteCampus(campus.id);  // Call the delete function from props
-    alert("Campus deleted successfully!");
+    //alert("Campus deleted successfully!");
     window.location.href = "/campuses";  // Redirect to All Campuses view
   };
   
@@ -43,7 +43,17 @@ const CampusView = (props) => {
       )}
 
       {/* Delete Campus Button */}
-      <button onClick={handleDelete}>Delete Campus</button>
+      <button onClick={handleDelete}
+      style={{ 
+        margin: "5px", 
+        padding: "8px 12px", 
+        backgroundColor: "#11153e", 
+        color: "white", 
+        border: "none", 
+        borderRadius: "5px", 
+        cursor: "pointer"
+      }}
+      >Delete Campus</button>
 
       {/* Edit Campus Button */}
       <button onClick={() => window.location.href = `/campus/${campus.id}/edit`}

@@ -24,10 +24,10 @@ const useStyles = makeStyles(theme => ({
     fontType: 'bold',
     fontFamily: 'sans-serif', 
     fontSize: '35px', 
-    color: 'darkblue'
+    color: '#1E2749'
   },
   appBar:{
-    backgroundColor: '#fcb6bb',
+    backgroundColor: '#E4D9FF',
     shadows: ['none'],
   },
   greeting:{
