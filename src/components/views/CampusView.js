@@ -45,6 +45,21 @@ const CampusView = (props) => {
       {/* Delete Campus Button */}
       <button onClick={handleDelete}>Delete Campus</button>
 
+      {/* Edit Campus Button */}
+      <button onClick={() => window.location.href = `/campus/${campus.id}/edit`}
+      style={{ 
+        margin: "5px", 
+        padding: "8px 12px", 
+        backgroundColor: "#11153e", 
+        color: "white", 
+        border: "none", 
+        borderRadius: "5px", 
+        cursor: "pointer"
+      }}
+      
+      >Edit Campus</button>
+
+
     </div>
   );
   
