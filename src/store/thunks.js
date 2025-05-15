@@ -53,7 +53,7 @@ export const deleteCampusThunk = (id) => async (dispatch) => {
   try{
     // API "delete" call to delete campus
     await axios.delete(`/api/campuses/${id}`);
-    dispatch(fetchAllCampuses());  // Refresh the campus list after deletion
+    dispatch(fetchAllCampusesThunk());  // Refresh the campus list after deletion
   }
   catch(err){
     console.error("Error deleting campus:", err);

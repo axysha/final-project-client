@@ -5,17 +5,15 @@ The Container component is responsible for stateful logic and data fetching, and
 passes data (if any) as props to the corresponding View component.
 If needed, it also defines the component's "connect" function.
 ================================================== */
-import Header from './Header';
-import { Component } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from "react-router-dom";
-
-import { 
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import Header from "./Header";
+import {
   fetchAllStudentsThunk,
   deleteStudentThunk
-} from '../../store/thunks';
+} from "../../store/thunks";
+import AllStudentsView from "../views/AllStudentsView";
 
-import AllStudentsView from '../views/AllStudentsView';
 
 class AllStudentsContainer extends Component {
   // Get all students data from back-end database
@@ -47,14 +45,12 @@ const mapState = (state) => {
 };
 // 2. The "mapDispatch" argument is used to dispatch Action (Redux Thunk) to Redux Store.
 // The "mapDispatch" calls the specific Thunk to dispatch its action. The "dispatch" is a function of Redux Store.
-const mapDispatch = (dispatch) => {
-  return {
-    fetchAllStudents: () => dispatch(fetchAllStudentsThunk()),
-    deleteStudent: (studentId) => dispatch(deleteStudentThunk(studentId)),
-  };
-};
+const mapDispatch = (dispatch) => ({
+  fetchAllStudents: () => dispatch(fetchAllStudentsThunk()),
+  deleteStudent: (id) => dispatch(deleteStudentThunk(id)),
+});
 
 // Export store-connected container by default
 // AllStudentsContainer uses "connect" function to connect to Redux Store and to read values from the Store 
 // (and re-read the values when the Store State updates).
-export default withRouter(connect(mapState, mapDispatch)(AllStudentsContainer));
+export default connect(mapState, mapDispatch)(AllStudentsContainer);
